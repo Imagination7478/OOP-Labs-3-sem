@@ -121,6 +121,7 @@ namespace OOP_lab_1
             get {
                 return set[i];
             }
+            set { }
             
         }
         

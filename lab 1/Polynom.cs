@@ -20,6 +20,14 @@ namespace OOP_lab_1
                 this.unknown[i] = u;
             }
         }
+        Polynom(SetOfRational rSet, List<char> unknown)
+        {
+            for (int i = 0; i < rSet.Size(); i++)
+            {
+                this.rSet = rSet;
+                this.unknown[i] = unknown[i];
+            }
+        }
 
         //Polynom() { }
 
@@ -54,6 +62,7 @@ namespace OOP_lab_1
                 rSet[i] = firstPol.rSet[i] + secondPol.rSet[i];
             }
 
+            Polynom newP = new Polynom(rSet, unknown);
             return ;
         }
     }
