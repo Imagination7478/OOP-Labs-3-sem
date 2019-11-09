@@ -25,6 +25,7 @@ namespace OOP_lab_1 {
             Console.Write(d + "/" + n);
         }
 
+        // Сумма двух дробей
         public static Rational operator +(Rational f, Rational s) {
             Rational newR;
             int newN1, newN2;
@@ -40,6 +41,7 @@ namespace OOP_lab_1 {
             return newR;
         }
 
+        // Поиск общего знаменателя
         private static int NOZ(int[] maxmin)
         {
             Array.Sort(maxmin);

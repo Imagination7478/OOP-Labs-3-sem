@@ -32,6 +32,11 @@ namespace OOP_lab_1
             set.Add(RationalNumber);
         }
 
+        public void Add(Rational rational) {
+            FindMinMax(rational);
+            set.Add(rational);
+        }
+
         public void GetMin() {
             minr.Show();
         }
@@ -121,7 +126,9 @@ namespace OOP_lab_1
             get {
                 return set[i];
             }
-            set { }
+            set {
+                // todo
+            }
             
         }
         

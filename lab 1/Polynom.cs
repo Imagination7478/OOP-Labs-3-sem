@@ -8,8 +8,10 @@ namespace OOP_lab_1
 {
     class Polynom
     {
-        SetOfRational rSet;
-        List<char> unknown;
+        SetOfRational rSet; // Дроби
+        List<char> unknown; // их буквы
+
+        // Создание полинома через консоль
         Polynom(SetOfRational rSet) {
             for (int i = 0; i < rSet.Size(); i++) {
                 this.rSet = rSet;
@@ -20,6 +22,8 @@ namespace OOP_lab_1
                 this.unknown[i] = u;
             }
         }
+
+        // Создание полинома из файла
         Polynom(SetOfRational rSet, List<char> unknown)
         {
             for (int i = 0; i < rSet.Size(); i++)
@@ -28,8 +32,6 @@ namespace OOP_lab_1
                 this.unknown[i] = unknown[i];
             }
         }
-
-        //Polynom() { }
 
         public void Show() {
             for(int i = 0; i < rSet.Size(); i++) {
@@ -47,23 +49,23 @@ namespace OOP_lab_1
             Console.WriteLine();
         }
 
-        public static Polynom operator +(Polynom firstPol, Polynom secondPol) {
-            int newSize;
-            if (firstPol.rSet.Size() < secondPol.rSet.Size()) {
-                newSize = secondPol.rSet.Size();
-            } else {
-                newSize = firstPol.rSet.Size();
+        // Сумма полиномов
+        public static Polynom operator +(Polynom firstPol, Polynom secondPol)
+        {
+            for (int i = 0, j = 0; i < secondPol.unknown.Count(); i++)
+            {
+                if (secondPol.unknown[i] == firstPol.unknown[j])
+                {
+                    firstPol.rSet[i] = firstPol.rSet[i] + secondPol.rSet[i];
+                    break;
+                }
+                else if (j == firstPol.unknown.Count())
+                {
+                    firstPol.unknown.Add(secondPol.unknown[i]);
+                    firstPol.rSet.Add(secondPol.rSet[j]);
+                }
             }
-
-            SetOfRational rSet = new SetOfRational();
-            List<char> unknown = new List<char>();
-
-            for(int i = 0; i < newSize; i++) {
-                rSet[i] = firstPol.rSet[i] + secondPol.rSet[i];
-            }
-
-            Polynom newP = new Polynom(rSet, unknown);
-            return ;
+            return firstPol;
         }
     }
 }
